@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+
+  <!-- JavaScript -->
+  <script src="script.js" defer></script>
+
+  <title>Rock, Paper, Scissors</title>
+
+  <!-- Score
+  Rules
+
+  You Picked
+  The House Picked
+
+  You Win
+  You Lose
+
+  Play Again -->
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body
+  style="height: 100vh; background: radial-gradient(circle at top, #1a1a8c, #000); background-repeat: no-repeat; background-size: cover;">
+
+  <div class="container-fluid d-flex flex-column" style="height: 100vh;">
+
+    <!-- Title & Score -->
+    <div class="d-flex justify-content-center">
+      <div class="border border-4 rounded m-5 p-3 d-flex w-50">
+        <!-- Title -->
+        <div class="d-flex flex-column w-100 text-white m-2 justify-content-center" style="font-size: 50px;">
+          <p class="mb-0" style="margin-top: -20px; font-family: 'New Amsterdam', serif">Rock</p>
+          <p style="margin-top: -35px; margin-bottom: -35px; font-family: 'New Amsterdam', serif">Paper</p>
+          <p style="margin-bottom: -20px; font-family: 'New Amsterdam', serif">Scissors</p>
+        </div>
+        <!-- Score -->
+        <div class="d-flex flex-column px-4 align-items-center justify-content-center bg-white m-2 rounded pt-3">
+          <span class="text-primary" style="font-size: 30px; font-family:'New Amsterdam', serif">Score</span>
+          <span class="" style="font-size: 70px; font-family: 'New Amsterdam', serif; margin-top: -30px;">12</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item Picked -->
+    <div id="picked-items" class="d-flex mt-5" style="display: none !important">
+      <!-- You -->
+      <div class="col-6 d-flex justify-content-center flex-column align-items-center">
+        <h1 class=" text-white mb-4" style="font-family: 'New Amsterdam', serif"> YOU PICKED</h1>
+        <div class="rounded-circle p-4" id="colorItem"><button class="rounded-circle border-0"
+            style="width: 250px; height: 250px;"><img id="itemImg" src="" alt="picked" height="150px"
+              alt="paper"></button>
+        </div>
+      </div>
+      <!-- Computer -->
+      <div class="col-6 d-flex justify-content-center flex-column align-items-center align-middle">
+        <h1 class=" text-white" style="font-family: 'New Amsterdam', serif"> THE HOUSE PICKED</h1>
+        <div class="rounded-circle my-auto" style="background-color: rgba(0, 0, 0, 0.4); width: 260px; height: 260px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Play buttons -->
+    <div id="play-buttons" class="d-flex flex-column align-items-center mt-5">
+      <div class="d-flex gap-5">
+        <!-- triangle -->
+        <div class="position-absolute" style="z-index: 1">
+          <img src="images/bg-triangle.svg" class="position-relative" style="left: 90px; top: 90px;" alt="triangle">
+        </div>
+        <!-- Paper -->
+        <div class="rounded-circle p-4" style="background-color: rgb(76, 125, 231); z-index: 2;"><button
+            onclick="pickItem('paper'); hideButtons()" class="rounded-circle border-0"
+            style="width: 180px; height: 180px;"><img src="images/icon-paper.svg" height="90px" alt="paper"></button>
+        </div>
+        <!-- Scissors -->
+        <div class="rounded-circle p-4" style="background-color: rgb(228, 179, 19); z-index: 2;"><button
+            onclick="pickItem('scissors'); hideButtons()" class="rounded-circle border-0"
+            style="width: 180px; height: 180px;"><img src="images/icon-scissors.svg" height="90px"
+              alt="scissors"></button></div>
+      </div>
+      <!-- Rock -->
+      <div class="rounded-circle p-4" style="background-color: rgba(214, 56, 69, 0.973); z-index: 2;"><button
+          onclick="pickItem('rock'); hideButtons()" class="rounded-circle border align-items-center"
+          style="width: 180px; height: 180px;"><img src="images/icon-rock.svg" height="80px" alt="rock"></button>
+      </div>
+    </div>
+    <img src="images/" alt="">
+    <div class="d-flex justify-content-end mt-auto">
+      <button class="rounded-3 border border text-white btn m-5 px-5"
+        style="font-size: 25px; font-family: 'New Amsterdam', serif;" data-bs-toggle="modal"
+        data-bs-target="#rulesModal">
+        Rules</button>
+      <!-- Modal Rules -->
+      <div class="modal fade rounded-3" id="rulesModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title text-black-50" style="font-family: 'New Amsterdam', serif;">RULES</h1>
+              <button type="button" data-bs-dismiss="modal" aria-label="Close" class="border-0 bg-transparent"><img
+                  class="" src="images/icon-close.svg" alt="close"></button>
+            </div>
+            <img src="images/image-rules.svg" alt="" class="p-5">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Bootstrap -->
+  <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
