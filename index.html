@@ -65,19 +65,37 @@
     </div>
 
     <!-- Item Picked -->
-    <div id="picked-items" class="d-flex mt-5" style="display: none !important">
+    <div id="picked-items" class="d-none mt-5">
       <!-- You -->
-      <div class="col-6 d-flex justify-content-center flex-column align-items-center">
+      <div class=" col-5 d-flex justify-content-center flex-column align-items-center">
         <h1 class=" text-white mb-4" style="font-family: 'New Amsterdam', serif"> YOU PICKED</h1>
-        <div class="rounded-circle p-4" id="colorItem"><button class="rounded-circle border-0"
-            style="width: 250px; height: 250px;"><img id="itemImg" src="" alt="picked" height="150px"
+        <div class="rounded-circle p-4" id="userColorItem"><button class="rounded-circle border-0"
+            style="width: 250px; height: 250px;"><img id="userItemImg" src="" alt="picked" height="150px"
               alt="paper"></button>
         </div>
       </div>
+      <!-- Winner -->
+      <div id="result" class="col-2 d-flex flex-column justify-content-center align-items-center"
+        style="visibility: hidden;">
+        <p id="textResult" class="text-white d-flex" style="font-size: 50px; font-family: 'New Amsterdam', serif;"> You
+          Lose
+        </p>
+        <button id="try-again" class="rounded-3 text-primary d-flex px-5 border-0"
+          style="font-size: 27px; font-family: 'New Amsterdam', serif; background-color: rgba(253,253,253,255);"
+          onclick="playAgainButton()"> Play
+          Again</button>
+      </div>
       <!-- Computer -->
-      <div class="col-6 d-flex justify-content-center flex-column align-items-center align-middle">
-        <h1 class=" text-white" style="font-family: 'New Amsterdam', serif"> THE HOUSE PICKED</h1>
-        <div class="rounded-circle my-auto" style="background-color: rgba(0, 0, 0, 0.4); width: 260px; height: 260px;">
+      <div class="col-5 d-flex justify-content-center flex-column align-items-center align-middle">
+        <h1 class="text-white mb-4" style="font-family: 'New Amsterdam', serif"> THE HOUSE PICKED</h1>
+        <!-- Empty -->
+        <div id="emptyPick" class="rounded-circle my-auto"
+          style="background-color: rgba(0, 0, 0, 0.4); width: 260px; height: 260px;">
+        </div>
+        <!-- Pick -->
+        <div class="rounded-circle p-4" style="display: none" id="housePickedColor"><button
+            class="rounded-circle border-0" style="width: 250px; height: 250px;"><img id="housePickedimg" src=""
+              alt="picked" height="150px" alt="paper"></button>
         </div>
       </div>
     </div>
